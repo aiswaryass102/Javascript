@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Create first contact object
+let contact1 = {
+  name: "Aiswarya",
+  phone: "9876543210",
+  email: "aiswarya@gmail.com",
+
+  // Method to return full contact info
+  getInfo: function () {
+    return `Name: ${this.name}, Phone: ${this.phone}, Email: ${this.email}`;
+  }
+};
+
+// Create second contact object
+let contact2 = {
+  name: "Anaswara",
+  phone: "9123456780",
+  email: "anaswara@gmail.com",
+
+  // Same method structure
+  getInfo: function () {
+    return `Name: ${this.name}, Phone: ${this.phone}, Email: ${this.email}`;
+  }
+};
+
+// Function to print contact information
+function printContactInfo(contact) {
+  console.log(contact.getInfo());
+}
+
+// Call the function for both contacts
+printContactInfo(contact1);
+printContactInfo(contact2);
+
+    </script>
+</body>
+</html>
