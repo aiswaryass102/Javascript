@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Create the order object
+const order = {
+  itemName: "Wireless Mouse",
+  isDelivered: true,
+  daysSinceDelivery: 5
+};
+
+// Button click event
+document.getElementById("checkBtn").addEventListener("click", function () {
+
+  // Check eligibility WITHOUT if-else
+  const result =
+    order.isDelivered && order.daysSinceDelivery <= 7
+      ? "Eligible for Return"
+      : "Return Period Expired";
+
+  // Display result on page
+  document.getElementById("result").innerText = result;
+
+  // Check if itemName exists
+  console.log("itemName exists:", "itemName" in order);
+
+  // Remove daysSinceDelivery property
+  delete order.daysSinceDelivery;
+
+  console.log(order);
+});
+
+
+    </script>
+</body>
+</html>
