@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Array of student objects
+const students = [
+  { name: "Aarav", score: 78 },
+  { name: "Diya", score: 65 },
+  { name: "Kiran", score: 92 },
+  { name: "Meera", score: 54 },
+  { name: "Rohit", score: 81 }
+];
+
+// 1. List all student names
+console.log("All Student Names:");
+students.map(student => console.log(student.name));
+
+// 2. Names of students who scored more than 60
+const highScorers = students
+  .filter(student => student.score > 60)
+  .map(student => student.name);
+
+console.log("\nStudents scoring more than 60:");
+console.log(highScorers);
+
+// 3. Total score of all students
+const totalScore = students.reduce((total, student) => total + student.score, 0);
+console.log("\nTotal Score of all students:", totalScore);
+
+// 4. Check if all students passed (score > 35)
+const allPassed = students.every(student => student.score > 35);
+console.log("\nAll students passed?", allPassed);
+
+// 5. Check if at least one student scored more than 90
+const topScorerExists = students.some(student => student.score > 90);
+console.log("\nAny student scored more than 90?", topScorerExists);
+
+// 6. Sort students by score in descending order
+const sortedStudents = [...students].sort((a, b) => b.score - a.score);
+
+console.log("\nStudents sorted by score (High → Low):");
+sortedStudents.forEach(student => {
+  console.log(`${student.name} - ${student.score}`);
+});
+
+    </script>
+    
+</body>
+</html>
