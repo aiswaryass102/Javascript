@@ -1,0 +1,53 @@
+
+    <!DOCTYPE html>
+<html>
+<body>
+
+<script>
+// Create the friend object
+const friend = {
+    name: "John",
+    birthDate: "1999-07-05"
+};
+
+// Function to get birthday details
+function getBirthdayDetails(friend) {
+    // Convert birthDate string to Date object
+    const birthDateObj = new Date(friend.birthDate);
+    const today = new Date();
+
+    // Extract year, month, and day
+    const year = birthDateObj.getFullYear();
+    const day = birthDateObj.getDate();
+
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    const monthName = monthNames[birthDateObj.getMonth()];
+
+    // Calculate age
+    let age = today.getFullYear() - year;
+
+    const hasHadBirthdayThisYear =
+        today.getMonth() > birthDateObj.getMonth() ||
+        (today.getMonth() === birthDateObj.getMonth() &&
+         today.getDate() >= birthDateObj.getDate());
+
+    if (!hasHadBirthdayThisYear) {
+        age--;
+    }
+
+    // Display result
+    console.log(
+        `${friend.name} was born on ${day} ${monthName}, ${year} and is ${age} years old.`
+    );
+}
+
+// Call the function
+getBirthdayDetails(friend);
+</script>
+
+</body>
+</html>
+

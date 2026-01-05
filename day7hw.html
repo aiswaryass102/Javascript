@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Event Reminder</h3>
+
+<input type="date" id="eventDate">
+<button onclick="checkEvent()">Check</button>
+
+<p id="result"></p>
+
+<script>
+function checkEvent() {
+    const inputDate = document.getElementById("eventDate").value;
+    if (!inputDate) {
+        document.getElementById("result").innerText = "Please select a date.";
+        return;
+    }
+
+    // Convert input string to Date object
+    const eventDate = new Date(inputDate);
+    const today = new Date();
+
+    // Extract year, month, day
+    const year = eventDate.getFullYear();
+    const day = eventDate.getDate();
+
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    const monthName = monthNames[eventDate.getMonth()];
+
+    // Calculate full years passed
+    let yearsPassed = today.getFullYear() - year;
+
+    const hasCompletedYear =
+        today.getMonth() > eventDate.getMonth() ||
+        (today.getMonth() === eventDate.getMonth() &&
+         today.getDate() >= eventDate.getDate());
+
+    if (!hasCompletedYear) {
+        yearsPassed--;
+    }
+
+    // Custom message
+    const message =
+        yearsPassed >= 1
+            ? "It has been more than a year since that date."
+            : "It has been less than a year since that date.";
+
+    // Display result
+    document.getElementById("result").innerHTML = `
+        <strong>Date:</strong> ${day} ${monthName}, ${year}<br>
+        <strong>Years passed:</strong> ${yearsPassed}<br>
+        <strong>Message:</strong> ${message}
+    `;
+}
+</script>
+
+</body>
+</html>
