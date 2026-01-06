@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+let purchaseCount = 0;
+
+while (purchaseCount < 5) {
+
+    let code = parseInt(prompt("Enter product code (1-Apple, 2-Banana, 3-Mango):"));
+    let quantity = parseInt(prompt("Enter quantity:"));
+
+    let pricePerItem = 0;
+    let productName = "";
+
+    switch (code) {
+        case 1:
+            productName = "Apple";
+            pricePerItem = 30;
+            break;
+
+        case 2:
+            productName = "Banana";
+            pricePerItem = 10;
+            break;
+
+        case 3:
+            productName = "Mango";
+            pricePerItem = 50;
+            break;
+
+        default:
+            alert("Invalid product code. Skipping this purchase.");
+            continue; // skip this iteration
+    }
+
+    let total = pricePerItem * quantity;
+
+    console.log("Product:", productName);
+    console.log("Quantity:", quantity);
+    console.log("Total Price: ₹" + total);
+
+    if (total > 100) {
+        console.log("High purchase");
+    } else {
+        console.log("Normal purchase");
+    }
+
+    console.log("-----------------------");
+
+    purchaseCount++;
+}
+</script>
+</body>
+</html>
