@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+// JSON string from contact form
+let feedbackJSON = `{
+  "name": "Aiswarya",
+  "email": "aiswarya@example.com",
+  "feedback": "Thank you for the great support!"
+}`;
+
+// Named arrow function
+const processFeedback = () => {
+  try {
+    // Convert JSON string to JavaScript object
+    const feedbackData = JSON.parse(feedbackJSON);
+
+    // Check if feedback contains the word "thank" (case-insensitive)
+    if (feedbackData.feedback.toLowerCase().includes("thank")) {
+      console.log("Positive feedback received");
+    } else {
+      console.log("Feedback noted");
+    }
+
+  } catch (error) {
+    // Handle invalid JSON
+    console.error("Error: Invalid JSON format");
+  }
+};
+
+// Run the function
+processFeedback();
+</script>
+
+</body>
+</html>
